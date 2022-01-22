@@ -2,3 +2,47 @@ body, html {
 	margin: 0;
 	padding: 0;
 }
+
+.button {
+	border-radius: 8px;
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	justify-content: center;
+	height: 60px;
+	text-align: center;
+	cursor: pointer;
+	text-transform: uppercase;
+	font: 700  18px/20px "Anonymous Pro",  monospace;
+	text-decoration: none;
+	transition-duration: 300ms;
+	transition-property: background, color;
+	margin: 0 20px;
+}
+
+@media (max-width: 489px) {
+	.button {
+		height: 40px;
+	}
+}
+
+.yellow {
+	color: #181B20;
+	background: rgb(255, 221, 0);
+	border: 2px solid rgb(255, 221, 0);;
+}
+
+.yellow:hover, .yellow:active, .black {
+	background: #181B20;
+	color: #fff;
+	border: 2px solid #fff;
+}
+
+.black:hover, .black:active {
+	color: #FFFFFF3B;
+	border: 2px solid #FFFFFF3B;
+}
+.button i {
+	margin-left: 10px;
+	font-size: 130%;
+}

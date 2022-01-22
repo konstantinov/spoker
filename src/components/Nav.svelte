@@ -29,6 +29,13 @@ a {
 a:hover, a[aria-current="page"] {
 	border-bottom: 2px solid #000;
 }
+
+@media (max-width: 600px) {
+	ul {
+		padding: 5px;
+		line-height: 25px;
+	}
+}
 </style>
 
 <nav>
