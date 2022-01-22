@@ -23,11 +23,16 @@ a {
 	margin: 0 20px;
 	transition-duration: 1s;
 	transition-property: border-bottom;
+	color: #181B20;
 }
 
 
 a:hover, a[aria-current="page"] {
 	border-bottom: 2px solid #000;
+}
+
+a:active {
+	color: red;
 }
 
 @media (max-width: 600px) {

@@ -191,10 +191,13 @@
 			<div class="step">Plan!</div>
 		</div>
 		<div class="buttons">
-			<a class="button yellow" href="#">Start now<i>&rarr;</i></a>
+			<a class="button yellow" href="start">Start now<i>&rarr;</i></a>
 			<a class="button black" href="#">How it works<i>&rarr;</i></a>
 		</div>
 	</div>
+</section>
+<section class="info">
+	<h3>How it works</h3>
 </section>
 
 

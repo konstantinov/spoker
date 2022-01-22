@@ -104,24 +104,5 @@ export default {
 		external: Object.keys(pkg.dependencies).concat(require('module').builtinModules),
 		preserveEntrySignatures: 'strict',
 		onwarn,
-	},
-
-	serviceworker: {
-		input: config.serviceworker.input(),
-		output: config.serviceworker.output(),
-		plugins: [
-			resolve(),
-			replace({
-				preventAssignment: true,
-				values:{
-					'process.browser': true,
-					'process.env.NODE_ENV': JSON.stringify(mode)
-				},
-			}),
-			commonjs(),
-			!dev && terser()
-		],
-		preserveEntrySignatures: false,
-		onwarn,
 	}
 };
