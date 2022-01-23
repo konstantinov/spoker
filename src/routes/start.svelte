@@ -1,7 +1,7 @@
 <script>
   import ButtonSwitch from "../components/ButtonSwitch.svelte";
 
-  import { difference } from "lodash/fp";
+  import { difference, uniq } from "lodash/fp";
 
   const cards = {
     Scrum: ["0", "1/2", "1", "3", "5", "8", "13", "20", "40", "100"],
@@ -9,14 +9,20 @@
     "Shirt sizes": ["XS", "S", "M", "L", "XL", "XXL"],
     Etc: ["Coffee", "?"],
   };
+
+  const getCards = (type) => cards[type];
+
   let options = ["Scrum", "Fibonacci", "Shirt sizes", "Etc"];
   let selected = ["Scrum", "Etc"];
 
-  let selectedCards = selected.flatMap((type) => cards[type]);
+  let selectedCards = selected.flatMap(getCards);
 
   const handleChangeTypes = ({ detail: newTypes }) => {
-    const newSelectedCards = newTypes.flatMap((type) => cards[type]);
-    selectedCards = [...difference(selectedCards, newSelectedCards)];
+    const added = difference(newTypes, selected);
+    const deletedTypes = difference(selected, newTypes);
+    const deletedCards = difference(deletedTypes.flatMap(getCards), newTypes.flatMap(getCards));
+
+    selectedCards = uniq([...added.flatMap(getCards), ...difference(selectedCards, deletedCards)]);
     selected = newTypes;
   };
 </script>
