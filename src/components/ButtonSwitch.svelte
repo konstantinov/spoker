@@ -1,28 +1,35 @@
 <script>
-  import { createEventDispatcher } from "svelte";
+    import {
+        createEventDispatcher
+    } from "svelte";
 
-  export let options;
-  export let selected;
-  export let multiple;
-  export let style;
+    export let options;
+    export let selected;
+    export let multiple;
+    export let style;
 
-  const dispatch = createEventDispatcher();
+    const dispatch = createEventDispatcher();
 
-  let items;
-  $: items = options.map((name) => ({ name, selected: selected.includes(name) }));
-  const handleClick = (option) => {
-    const newSelected = option.selected
-      ? selected.filter((item) => item !== option.name)
-      : multiple
-      ? [...selected, option.name]
-      : [option.name];
+    let items;
+    $: items = options.map((name) => ({
+        name,
+        selected: selected.includes(name)
+    }));
+    const handleClick = (option) => {
+        const newSelected = option.selected ?
+            !multiple && selected.length === 1 && selected[0] === option.name ?
+            selected :
+            selected.filter((item) => item !== option.name) :
+            multiple ? [...selected, option.name] : [option.name];
 
-    dispatch("change", [...newSelected]);
-  };
+        selected = [...newSelected];
+
+        dispatch("change", [...newSelected]);
+    };
 </script>
 
 <div class="button-switch {style}">
-  {#each items as option}
-    <div class="button {option.selected ? 'yellow' : 'black'}" on:click={() => handleClick(option)}>{option.name}</div>
-  {/each}
+    {#each items as option}
+    <div class="button {option.selected ? 'yellow' : 'black'}" on:click={()=> handleClick(option)}>{option.name}</div>
+    {/each}
 </div>

@@ -30,6 +30,10 @@
         ><img src="/images/buy-me-a-coffee.svg" alt="Buy me a coffee" /></a
       >
     </div>
+    <div class="small">
+      <h4>Privacy appreciating</h4>
+      <p>This project doesn't use any cookies at all. Really.</p>
+    </div>
   </div>
   <div class="copyright-container">
     <a class="copyright" href="https://github.com/konstantinov" target="_blank">Dmitry Konstantinov</a> &copy; 2022
@@ -93,7 +97,7 @@
     .columns {
       flex-flow: column;
     }
-    .large {
+    .large, .small:last-child {
       order: -1;
     }
     .small {

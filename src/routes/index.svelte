@@ -134,8 +134,8 @@
     }
   }
   @media (max-width: 600px) {
-    section.banner {
-      padding: 15px 0;
+    .content {
+      background: transparent;
     }
     .button {
       min-width: 185px;
