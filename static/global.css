@@ -220,3 +220,11 @@ p {
         border-radius: 0 8px 8px 0;
     }
 }
+
+.error {
+    padding: 4px;
+    border: 1px solid red;
+    color: red;
+    border-radius: 4px;
+    white-space: nowrap;
+}

@@ -25,6 +25,21 @@
 
 <script>
     export let session;
+    import {
+        onMount
+    } from 'svelte';
+
+    let url;
+    let urlInput;
+
+    onMount(() => {
+        url = `${window.location.origin}/e/${session._id["$oid"]}`;
+    });
+
+    const onFocus = () => {
+        urlInput.select();
+        document.execCommand('copy');
+    }
 </script>
 
 
@@ -35,5 +50,9 @@
     <div class="content">
         <h4>{session.name || 'New'} estimate session</h4>
 
+        <p>1. Share this link to other team members. <span class="error">Don&apos;t copy link from the address bar!</span>
+            <input type="text" value={url} readonly class="black" bind:this={urlInput} on:focus={onFocus} />
+        </p>
+        <p>2. Manage session activity.</p>
     </div>
 </section>

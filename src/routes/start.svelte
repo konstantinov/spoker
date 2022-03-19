@@ -101,13 +101,6 @@
 </section>
 
 <style>
-    .error {
-        padding: 4px;
-        border: 1px solid red;
-        color: red;
-        border-radius: 4px;
-    }
-    
     .start-row {
         display: flex;
         justify-content: center;
